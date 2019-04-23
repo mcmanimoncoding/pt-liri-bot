@@ -10,7 +10,7 @@ var axios = require("axios");
 
 var moment = require("moment")
 
-var spotify = new Spotify(keys.spotify);
+
 
 
 let command = process.argv[2];
@@ -67,23 +67,27 @@ function concertThis(searchTerm) {
 
 
 function spotifyThis(searchTerm) {
-
-    spotify.search({
+// console.log(searchTerm);
+var spotifyObj = new Spotify({id: keys.spotify.id, secret: keys.spotify.secret});
+    spotifyObj.search({
             type: "track",
-            query: searchTerm,
+            query: 'All the Small Things',
         },
         function (error, data) {
             if (error) {
                 console.log("Something went wrong: " + error);
+                return;
             }
-            let spotifyInfo = data.tracks.items;
-            for (var i = 0; i < songs.length; i++) {
-                console.log(i);
+            console.log("Finally Working!");
+            console.log(data);
+            // let spotifyInfo = data.tracks.items;
+            // for (var i = 0; i < songs.length; i++) {
+            //     console.log(i);
                 // console.log("Artist: ");
                 // console.log("Track Name: ");
                 // console.log("Album: ");
                 // console.log("Spotify Link: ");
-            };
+            // };
         }
     );
 }
