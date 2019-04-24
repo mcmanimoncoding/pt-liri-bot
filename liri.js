@@ -68,7 +68,9 @@ function concertThis(searchTerm) {
 
 function spotifyThis(searchTerm) {
 // console.log(searchTerm);
-var spotifyObj = new Spotify({id: keys.spotify.id, secret: keys.spotify.secret});
+var spotifyObj = new Spotify({id: process.env.SPOTIFY_ID,
+    secret: process.env.SPOTIFY_SECRET})
+  };;
     spotifyObj.search({
             type: "track",
             query: 'All the Small Things',
