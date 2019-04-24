@@ -70,10 +70,11 @@ function spotifyThis(searchTerm) {
 // console.log(searchTerm);
 var spotifyObj = new Spotify({id: process.env.SPOTIFY_ID,
     secret: process.env.SPOTIFY_SECRET})
-  };;
+
     spotifyObj.search({
             type: "track",
-            query: 'All the Small Things',
+            query: searchTerm,
+            limit: 1,
         },
         function (error, data) {
             if (error) {
@@ -81,18 +82,14 @@ var spotifyObj = new Spotify({id: process.env.SPOTIFY_ID,
                 return;
             }
             console.log("Finally Working!");
-            console.log(data);
-            // let spotifyInfo = data.tracks.items;
-            // for (var i = 0; i < songs.length; i++) {
-            //     console.log(i);
-                // console.log("Artist: ");
-                // console.log("Track Name: ");
-                // console.log("Album: ");
-                // console.log("Spotify Link: ");
-            // };
+            let spotifyInfo = data.tracks.items;
+            for  (var i=0; i<1; i++){
+                console.log(spotifyInfo[i]);
+                console.log("Song: "+spotifyInfo[i].name+"\nArtist: "+spotifyInfo[i].artists[0].name + "\nAlbum: "+spotifyInfo[i].album.name+"\nURL: "+spotifyInfo[i].preview_url);
+            }
         }
     );
-}
+};
 
 
 function movieThis(searchTerm){
