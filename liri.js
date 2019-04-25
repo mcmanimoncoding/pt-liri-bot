@@ -57,7 +57,7 @@ function concertThis(searchTerm) {
 
                 console.log(
                     "Where: " + concert.venue.city + ", " + concert.venue.country + " at " + concert.venue.name +
-                    "\n When: " +moment(concert.datetime).format("MM/DD/YYYY")
+                    "\n When: " +moment(concert.datetime).format("MM/DD/YYYY")+"\n______________\n"
                 );
             }
         }
@@ -81,11 +81,11 @@ var spotifyObj = new Spotify({id: process.env.SPOTIFY_ID,
                 console.log("Something went wrong: " + error);
                 return;
             }
-            console.log("Finally Working!");
+            // console.log("Finally Working!");
             let spotifyInfo = data.tracks.items;
             for  (var i=0; i<1; i++){
                 // console.log(spotifyInfo[i]);
-                console.log("Song: "+spotifyInfo[i].name+"\nArtist: "+spotifyInfo[i].artists[0].name + "\nAlbum: "+spotifyInfo[i].album.name+"\nURL: "+spotifyInfo[i].preview_url);
+                console.log("---------\nSong: "+spotifyInfo[i].name+"\nArtist: "+spotifyInfo[i].artists[0].name + "\nAlbum: "+spotifyInfo[i].album.name+"\nURL: "+spotifyInfo[i].preview_url+"\n--------\n");
             }
         }
     );

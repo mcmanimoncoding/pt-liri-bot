@@ -28,3 +28,5 @@ If you run *node liri.js movie-this predator* [for example], LIRI will return th
 ### Do What It Says
 
 The command *node liri.js do-what-it-says* pulls the task information from the included *random.txt* file included in this repo.
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/zME8plZMhBw/0.jpg)](https://youtu.be/zME8plZMhBw)
